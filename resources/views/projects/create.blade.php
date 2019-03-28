@@ -6,18 +6,18 @@
     <div class="section">
         <form action="/projects" method="POST">
             @csrf
-            
+
             <div class="field">
                 <label for="title" class="label">Title</label>
                 <div class="control">
-                    <input type="text" name="title" class="input" placeholder="Project Title">
+                    <input type="text" name="title" class="input {{$errors->has('title') ? 'is-danger' : ''}}" placeholder="Project Title" value="{{old('title')}}" required>
                 </div>
             </div>
 
             <div class="field">
                 <label for="title" class="label">Title</label>
                 <div class="control">
-                    <textarea name="description" class="textarea" placeholder="Project description"></textarea>
+                    <textarea name="description" class="textarea {{$errors->has('description') ? 'is-danger' : ''}}" placeholder="Project description" required>{{old('description')}}</textarea>
                 </div>
             </div>
 
@@ -27,5 +27,7 @@
                 </div>
             </div>
         </form>
+
+        @include ('errors')
     </div>
 @endsection
