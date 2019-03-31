@@ -12,6 +12,6 @@ class Example{
     }
 
     function getName(){
-        return $name;
+        return $this->name;
     }
 }
